@@ -52,9 +52,9 @@ func printNaturalNumbersAsc_003(upperLimit int) (series string) {
 }
 
 func printSmallestNumberInAnArray_004(arrInput []float64, size int) float64 {
-	//printSmallestNumberInAnArray_004([45,72,33,49], 4) = "49" + printSmallestNumberInAnArray_004(3)
-	//printSmallestNumberInAnArray_004([45,72,33,49], 3) = "33" + printSmallestNumberInAnArray_004(2)
-	//printSmallestNumberInAnArray_004([45,72,33,49], 2) = "72" + printSmallestNumberInAnArray_004(1)
+	//printSmallestNumberInAnArray_004([45,72,33,49], 4) = "49" + printSmallestNumberInAnArray_004([45,72,33,49],3)
+	//printSmallestNumberInAnArray_004([45,72,33,49], 3) = "33" + printSmallestNumberInAnArray_004([45,72,33,49],2)
+	//printSmallestNumberInAnArray_004([45,72,33,49], 2) = "72" + printSmallestNumberInAnArray_004([45,72,33,49],1)
 	//printSmallestNumberInAnArray_004([45,72,33,49], 1) = "49" Base condition
 
 	if size == 1 {
