@@ -18,8 +18,10 @@ func main() {
 
 	//printOddNEvenNumbers_005(1, 3) // 1 is Odd number, 2 is Even number, 3 is Odd number
 
-	arr := [10]int{67, 29, 345, 7849, 562, 13448, 395, 633, 6893, 37}
-	printOddNEvenNumbersInAnArray_006(arr[:], 10)
+	//arr := [10]int{67, 29, 345, 7849, 562, 13448, 395, 633, 6893, 37}
+	//printOddNEvenNumbersInAnArray_006(arr[:], 10)
+
+	fmt.Println(printIndividualCharactersInAString_007("Hello World!")) // H e l l o  W o r l d !
 }
 
 func reverseString_001(raw string) (reversed string) {
@@ -114,4 +116,19 @@ func printOddNEvenNumbersInAnArray_006(inputArray []int, size int) {
 	}
 
 	printOddNEvenNumbersInAnArray_006(inputArray, size-1)
+}
+
+func printIndividualCharactersInAString_007(inputString string) string {
+	//printIndividualCharactersInAString_007("Hello") = "H" + printIndividualCharactersInAString_007("ello")
+	//printIndividualCharactersInAString_007("ello") = "e" + printIndividualCharactersInAString_007("llo")
+	//printIndividualCharactersInAString_007("llo") = "l" + printIndividualCharactersInAString_007("lo")
+	//printIndividualCharactersInAString_007("lo") = "l" + printIndividualCharactersInAString_007("lo")
+	//printIndividualCharactersInAString_007("o") = "o" + printIndividualCharactersInAString_007("") //Can be base condition
+	//printIndividualCharactersInAString_007("o") = "" //Base condition
+
+	if inputString == "" {
+		return ""
+	}
+
+	return inputString[0:1] + " " + printIndividualCharactersInAString_007(inputString[1:])
 }
