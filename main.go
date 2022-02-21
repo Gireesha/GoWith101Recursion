@@ -16,7 +16,10 @@ func main() {
 	//arr := [10]float64{67.8, 29.23, 35.22, 784.19, 5.6, 34.48, 39.55, 67.33, 689.33, 6.37}
 	//fmt.Println(printSmallestNumberInAnArray_004(arr[:], 10)) // [] ==> 5.6
 
-	printOddNEvenNumbers_005(1, 3) // 1 is Odd number, 2 is Even number, 3 is Odd number
+	//printOddNEvenNumbers_005(1, 3) // 1 is Odd number, 2 is Even number, 3 is Odd number
+
+	arr := [10]int{67, 29, 345, 7849, 562, 13448, 395, 633, 6893, 37}
+	printOddNEvenNumbersInAnArray_005(arr[:], 10)
 }
 
 func reverseString_001(raw string) (reversed string) {
@@ -87,4 +90,28 @@ func printOddNEvenNumbers_005(startNumber int, endNumber int) {
 	}
 
 	printOddNEvenNumbers_005(startNumber+1, endNumber)
+}
+
+func printOddNEvenNumbersInAnArray_005(inputArray []int, size int) {
+	//printOddNEvenNumbersInAnArray_005([],4) = printOddNEvenNumbersInAnArray_005([],3)
+	//printOddNEvenNumbersInAnArray_005([],3) = printOddNEvenNumbersInAnArray_005([],2)
+	//printOddNEvenNumbersInAnArray_005([],2) = printOddNEvenNumbersInAnArray_005([],1)
+	//printOddNEvenNumbersInAnArray_005(1, 1) = just print and exit; Base condition
+
+	if size == 1 {
+		if inputArray[size-1]%2 == 0 {
+			fmt.Println(inputArray[size-1], " is Even number")
+		} else {
+			fmt.Println(inputArray[size-1], " is Odd number")
+		}
+		return
+	}
+
+	if inputArray[size-1]%2 == 0 {
+		fmt.Println(inputArray[size-1], " is Even number")
+	} else {
+		fmt.Println(inputArray[size-1], " is Odd number")
+	}
+
+	printOddNEvenNumbersInAnArray_005(inputArray, size-1)
 }
