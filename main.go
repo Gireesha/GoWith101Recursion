@@ -21,7 +21,8 @@ func main() {
 	//arr := [10]int{67, 29, 345, 7849, 562, 13448, 395, 633, 6893, 37}
 	//printOddNEvenNumbersInAnArray_006(arr[:], 10)
 
-	fmt.Println(printIndividualCharactersInAString_007("Hello World!")) // H e l l o  W o r l d !
+	//fmt.Println(printIndividualCharactersInAString_007("Hello World!")) // H e l l o  W o r l d !
+	fmt.Println(IsPalindrome_008("1234554321"))
 }
 
 func reverseString_001(raw string) (reversed string) {
@@ -131,4 +132,23 @@ func printIndividualCharactersInAString_007(inputString string) string {
 	}
 
 	return inputString[0:1] + " " + printIndividualCharactersInAString_007(inputString[1:])
+}
+
+func IsPalindrome_008(inputString string) bool {
+	//IsPalindrome_008("1234554321") = "1" + "1" IsPalindrome_008("23455432")
+	//IsPalindrome_008("23455432") = "2" + "2" + IsPalindrome_008("345543")
+	//IsPalindrome_008("345543") = "3" + "3" + IsPalindrome_008("4554")
+	//IsPalindrome_008("4554") = "4" + "4" + IsPalindrome_008("55")
+	//IsPalindrome_008("55") = "5" + "5" + IsPalindrome_008("")
+	//IsPalindrome_008("") = "" //Base condition
+
+	if len(inputString) == 0 || len(inputString) == 1 {
+		return true
+	}
+
+	if inputString[:1] != inputString[len(inputString)-1:] {
+		return false
+	}
+
+	return IsPalindrome_008(inputString[1 : len(inputString)-1])
 }
