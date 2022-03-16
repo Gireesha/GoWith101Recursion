@@ -10,7 +10,9 @@ func main() {
 
 	//Statements to run the test
 	//fmt.Println(reverseString_001("Hello World!")) // "Hello World!" ==> "!dlroW olleH"
+
 	//fmt.Println(printNaturalNumbersDesc_002(12))   // 12 ==> "12 11 10 9 8 7 6 5 4 3 2 1"
+
 	//fmt.Println(printNaturalNumbersAsc_003(12))    // 12 ==> "1 2 3 4 5 6 7 8 9 10 11 12"
 
 	//arr := [10]float64{67.8, 29.23, 35.22, 784.19, 5.6, 34.48, 39.55, 67.33, 689.33, 6.37}
@@ -22,7 +24,11 @@ func main() {
 	//printOddNEvenNumbersInAnArray_006(arr[:], 10)
 
 	//fmt.Println(printIndividualCharactersInAString_007("Hello World!")) // H e l l o  W o r l d !
-	fmt.Println(IsPalindrome_008("1234554321"))
+
+	//fmt.Println(IsPalindrome_008("1234554321"))
+
+	arr := [10]int{10, 29, 30, 49, 56, 58, 59, 63, 89, 97}
+	BinarySearch_009(arr[:], 49, 0, 9)
 }
 
 func reverseString_001(raw string) (reversed string) {
@@ -151,4 +157,34 @@ func IsPalindrome_008(inputString string) bool {
 	}
 
 	return IsPalindrome_008(inputString[1 : len(inputString)-1])
+}
+
+func BinarySearch_009(inputArray []int, numToBeSearched int, first int, last int) {
+
+	var midPoint int
+
+	if first > last {
+
+		fmt.Println("Number is not found")
+
+	} else {
+
+		/* Calculate mid element */
+		midPoint = (first + last) / 2
+
+		/* If mid is equal to number we are searching */
+		if inputArray[midPoint] == numToBeSearched {
+
+			fmt.Printf("Element is found at index %d ", midPoint)
+			return
+
+		} else if inputArray[midPoint] > numToBeSearched {
+
+			BinarySearch_009(inputArray, numToBeSearched, first, midPoint-1)
+
+		} else {
+
+			BinarySearch_009(inputArray, numToBeSearched, midPoint+1, last)
+		}
+	}
 }
