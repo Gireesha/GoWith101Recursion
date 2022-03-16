@@ -180,11 +180,11 @@ func BinarySearch_009(inputArray []int, numToBeSearched int, first int, last int
 
 		} else if inputArray[midPoint] > numToBeSearched {
 
-			BinarySearch_009(inputArray, numToBeSearched, first, midPoint-1)
+			BinarySearch_009(inputArray, numToBeSearched, first, midPoint-1) //Search left half
 
 		} else {
 
-			BinarySearch_009(inputArray, numToBeSearched, midPoint+1, last)
+			BinarySearch_009(inputArray, numToBeSearched, midPoint+1, last) //Search right half
 		}
 	}
 }
