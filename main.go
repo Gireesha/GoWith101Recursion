@@ -27,11 +27,11 @@ func main() {
 
 	//fmt.Println(IsPalindrome_008("1234554321"))
 
-	//arr := [10]int{10, 29, 30, 49, 56, 58, 59, 63, 89, 97}
-	//BinarySearch_009(arr[:], 49, 0, 9)
+	arr := [10]int{10, 29, 30, 49, 56, 58, 59, 63, 89, 97}
+	fmt.Println(BinarySearch_009(arr[:], 7, 0, 9))
 
-	arr := [10]int{102, 219, 330, 494, 526, 58, 49, 3, 189, 997}
-	fmt.Println(LinearSearch_010(arr[:], 49, 10))
+	//arr := [10]int{102, 219, 330, 494, 526, 58, 49, 3, 189, 997}
+	//fmt.Println(LinearSearch_010(arr[:], 49, 10))
 
 }
 
@@ -163,13 +163,13 @@ func IsPalindrome_008(inputString string) bool {
 	return IsPalindrome_008(inputString[1 : len(inputString)-1])
 }
 
-func BinarySearch_009(inputArray []int, numToBeSearched int, first int, last int) {
+func BinarySearch_009(inputArray []int, numToBeSearched int, first int, last int) int {
 
 	var midPoint int
 
 	if first > last {
 
-		fmt.Println("Number is not found")
+		return -1
 
 	} else {
 
@@ -179,16 +179,15 @@ func BinarySearch_009(inputArray []int, numToBeSearched int, first int, last int
 		/* If mid is equal to number we are searching */
 		if inputArray[midPoint] == numToBeSearched {
 
-			fmt.Printf("Element is found at index %d ", midPoint)
-			return
+			return midPoint
 
 		} else if inputArray[midPoint] > numToBeSearched {
 
-			BinarySearch_009(inputArray, numToBeSearched, first, midPoint-1) //Search left half
+			return BinarySearch_009(inputArray, numToBeSearched, first, midPoint-1) //Search left half
 
 		} else {
 
-			BinarySearch_009(inputArray, numToBeSearched, midPoint+1, last) //Search right half
+			return BinarySearch_009(inputArray, numToBeSearched, midPoint+1, last) //Search right half
 		}
 	}
 }
