@@ -27,12 +27,14 @@ func main() {
 
 	//fmt.Println(IsPalindrome_008("1234554321"))
 
-	arr := [10]int{10, 29, 30, 49, 56, 58, 59, 63, 89, 97}
-	fmt.Println(BinarySearch_009(arr[:], 7, 0, 9))
+	//arr := [10]int{10, 29, 30, 49, 56, 58, 59, 63, 89, 97}
+	//fmt.Println(BinarySearch_009(arr[:], 7, 0, 9))
 
 	//arr := [10]int{102, 219, 330, 494, 526, 58, 49, 3, 189, 997}
 	//fmt.Println(LinearSearch_010(arr[:], 49, 10))
 
+	arr := [10]int{102, 219, 330, 494, 526, 58, 49, 3, 189, 997}
+	fmt.Println(LinearSearchOOfNby2_011(arr[:], 997, 0, 9))
 }
 
 func reverseString_001(raw string) (reversed string) {
@@ -202,6 +204,20 @@ func LinearSearch_010(inputArray []int, numToBeSearched int, movingIndex int) in
 		return movingIndex
 	} else {
 		return LinearSearch_010(inputArray, numToBeSearched, movingIndex)
+	}
+
+}
+
+func LinearSearchOOfNby2_011(inputArray []int, numToBeSearched int, movingIndexL int, movingIndexR int) int {
+
+	if movingIndexR < movingIndexL {
+		return -1
+	} else if inputArray[movingIndexR] == numToBeSearched {
+		return movingIndexR
+	} else if inputArray[movingIndexL] == numToBeSearched {
+		return movingIndexL
+	} else {
+		return LinearSearchOOfNby2_011(inputArray, numToBeSearched, movingIndexL+1, movingIndexR-1)
 	}
 
 }
